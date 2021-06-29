@@ -1,0 +1,85 @@
+<div class="flex mt-6">
+  <div
+    id="sidebar"
+    class="w-1/8 h-screen bg-white m-2 border border-gray-300 rounded text-sm"
+  >
+    <div
+      class="
+        bg-gray-100
+        px-2
+        flex
+        justify-between
+        items-center
+        border border-gray-300
+      "
+    >
+      <p>Filtros</p>
+      <i (click)="limpiar()"
+        class="
+          fas
+          fa-eraser
+          cursor-pointer
+          text-red-500
+          border
+          rounded
+          border-gray-200
+        "
+      ></i>
+    </div>
+
+    <div class="flex items-center px-2">
+      <p class="cursor-pointer text-red-500 text-xl mr-2 font-bold">-</p>
+      <p>Prueba de Filtros</p>
+    </div>
+
+    <div class="px-4">
+      <p>Prueba:</p>
+      <input [(ngModel)]="texto" type="text" class="border rounded" />
+    </div>
+    <button (click)="pasarDatos()" type="button" class="mt-2 bg-red-500 text-white px-1 py-1 rounded font-medium mx-3 hover:bg-red-600 transition duration-200 each-in-out">Search</button>
+  </div>
+
+  <div
+    class="
+      p-0.5
+      border border-gray-300
+      h-screen
+      mt-2
+      mb-2
+      rounded
+      text-sm
+      items-center
+      flex
+      -ml-1
+    "
+  >
+  <i
+  *ngIf="showSidebar == true"
+  class="
+    fas
+    fa-chevron-left
+    cursor-pointer
+    border
+    rounded-full
+    p-1
+    absolute
+    -ml-2
+  "
+  (click)="handleSidebar()"
+></i>
+
+<i
+  *ngIf="showSidebar == false"
+  class="
+    fas
+    fa-chevron-right
+    cursor-pointer
+    border
+    rounded-full
+    p-1
+    absolute
+  "
+  (click)="handleSidebar()"
+></i>
+  </div>
+</div>

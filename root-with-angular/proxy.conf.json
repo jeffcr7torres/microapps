@@ -1,0 +1,9 @@
+{
+  "/datosCorporativo": {
+    "target": "http://10.190.6.21:12380",
+    "secure": false,
+    "logLevel": "debug"
+  }
+  
+  
+}

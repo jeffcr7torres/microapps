@@ -1,0 +1,13 @@
+{
+  "security": {
+    "url": "/auth",
+    "realm": "CFAVORITA-SSO-INTRANET",
+    "clientId": "componentes"
+  },
+  "CATALOGOS" : {
+    "CODIGO_TIPO_GENERO": 1,
+      "CODIGO_TIPO_IDENTIFICACION": 3,
+      "CODIGO_TIPO_PLATAFORMA_MENSAJERIA": 100600,
+      "CODIGO_TIPO_ESTADO_ENVIO_MENSAJE_CAMPANIA": 101025
+    }
+}

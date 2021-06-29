@@ -1,0 +1,319 @@
+
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color:white;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .sub-toolbar{
+    background-color: red; 
+    width: 100%;
+    position: absolute;
+    color: white;
+  }
+
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img
+  src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8yMS8xNXl6FjUAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAEgklEQVRYhbWY32scVRTHP3d2Yuwk2Yk/QEyaJSWCP9qN+mabTSw1Qejuk+TBzQqKSDEL9lGI/0DnRVDQbp80CF2LICpk8hIplWyt+GSyVogNJkxsoKCQsXFSmuxcH+7sJvsr2Y3bLyy7c+/ZuR/uPefcc6+QUtKIPCE0oA84AzwPHAUeAdoDky3gLvAnsAD8YEi53NDLAXEQiCdEOzAMvBkM/g/QBfQAvUBnYLoJ3AbWgY2g/Q/ga+C6IaV3aBBPiBeAd4EIYACngLZ9yXe1DfyImqUVYBpYMKQsNAziCdEBvAYkAR0YBUSDAJWSwFzw/RVwpdbs1AN5HzgNPAv0HxKgUqvAEnAV+KQSRq8AMIBzwCvASZQvtEr9wGOoJdvyhPjckHKzJgjwOjDWKggZjarP8DAyEkFGo11tkcjLqGV2gS+qQDwhXgTGUctxaAg/HkcmEshYDNnXV8ukCzgOjHtCLBhSLpRAghA9B4Q4hE/ISAR/YgKZStUbvFL9wC3gPeCdEgjwEipZjTUNMDWFn0w287eiRoE5T4gzhpRXiyApVAJqLERNk8LkJH46DeHwvqYil0PL5WBxEbG2VtaFyspJT4h53RNiABhAJasDJWMxCplM3SUQjoPI5RAzM2izswe97hRwHxjQUflikwYypj85SeHChZp9mm0jLl9uZPC9agvGPqkDgzQQJYVMpqYvaNksmmUhHKcZgL3qBo5rqH2kp66ZabJj21UQmm2jDw4SSqdLEP7EBIVsFn9iohmQHuCojnLS3npWhUwGOTRUehaOowbP5UqghcnJstDVFhebAekFHJ3yrbwKwj97tvSsZTKELAtct6nIOUCdwBGd6jQPqAxZWg7XJZROo9n2bp9lNZq8GpGvowqZJ9k7K6ZJIZMBgqVIpRD5vGq3rLoJTDgOwrbRstlmIDaBLR34C1VZPV3sKVgWhMOIfB49kQDXRUajyl9OnKgGyOXQLl5sNnSLug38rQMO8GgRREYi+MkkwnHKIHZsu8oXRC5HyLJ2HfdwWgfWdeBn4Fix1Z+aUj6RStWFqIqc/ycXuKkBPwEdqIIFPx5Xg+TzNSFCloU+ONgqiG3gYeCajir/V4A2Px4/rc3Pq+gwTQrZbAlC5PMlwBbqOvC7IeWqZki5A3wDbMloFG1qCqBsY9NsGz2RaDWERFX4sxAUz54QncCnqHQ7KmMxdmZmFEQ2SyidbiVAUXPAMvCBIeWGBhAUsZcCytViDnmAEKtAAZg2pNwA0Io9hpQ3gM/88+dd2df3ICHuAr8BXwK/FBvLzjWeEEe2l5aWxZ077frIyEO09jhRhLgGzBpSXtrbUbbPbG9sPIHvd4TGxj5EVU/P0NoD1k3UMfRKZWfZjLiu+xbQbZrmR54Q48DbtObI+T3gBQAzew9WRVXuvBumaU4Hv79F7QNvoK4cwsAQzR/C7wFrwMeGlL/WM27kWqIbtUyvAk+hit0wqo6pdy3horL1MvAd6q7k3n7jHAhSAXUMGAGeCyAeR6VoAfwbwKyjouEGsGJIeb+Rd/8HaqvMv940ia4AAAAASUVORK5CYII='
+  width="30" height="30" class="d-inline-block align-top" alt="">
+  <span style="color: red; ">Componentes Web Corporativos</span>
+  <div style=" width: 100%; text-align: left;">
+    <img (click)="home()"  style="margin-right: 0px;"
+    src='data:image/png;base64,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'
+    width="30" height="30" class="d-inline-block align-top" alt="">
+    <img (click)="save()"  style="margin-right: 0px;"
+    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABxElEQVRoge2ZPU/CQBjH/9dihAR20DL6CVgJ6dpIwuAgLq6sxlV3vwOTE2FxMEG7EsPKJ3Aw0WLZIVFjXxyg2pprKRf6mvttz+We9vnluetLDuBwOEEQ2uCLLBdLFfPGtu0ugGrMNTkMq/rHOZlOv8NMFmiDa4kLJCcBAN35QWloNxp7YSZTO6K3mzoCJGqjCTVvV+jtpv0bEDwsjcrJkap+BeVQO4JkO+HFxnG5sLh7VpT9oGl+IukihEwhznocPEsHIZfqnwx1mWWjIw4BncmWCOArkz0RYCUjLm7dQ9kUWXHqDrIs4nlAZFnEQ25EEnmPRPGJw9QRTZGlXRfiMOu06ix5TCKiaPRZbxjErNOqC5bVZ8llXVqKYFqvervJmO6DaTGn5mazc5G0wUXSRm5EGB+/5NE0xZ6kjrXdlrNCU2RJFI0+ACVsDlNHopQAAEkda5Yo9LbJYRKJUsLh8P7pbZv5udkjXCRtcJG0wUXSBhdJG1wkbWwUqY0mJOqjtjBsqiM3HfH7H5ljfY74/3QpKSh1vLsDP5EBgMstLho/Nhm4Q6rI57JwVSwbAMEZbNTiqSwkBDqAwdIsXyddCoeTJX4AEnqFq3OyOYcAAAAASUVORK5CYII='
+    width="30" height="30" class="d-inline-block align-top" alt="">
+   </div>
+</div>
+<div class="sub-toolbar">
+  Componente k-layout con Header
+</div>
+<router-outlet></router-outlet>
